@@ -4,7 +4,8 @@ class Enemy < TestObject
       right: K_RIGHT,
       left: K_LEFT,
       down: K_DOWN,
-      up: K_UP
+      up: K_UP,
+      shoot: K_RETURN
     }
   end
 end
