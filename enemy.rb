@@ -1,6 +1,7 @@
 class Enemy < TestObject
   def shoot
     return Sprite.new(self.x + (self.image.width / 2), self.y + self.image.height, Image.new(2, 32, C_RED)) if Input.key_push?(keys[:shoot])
+    return Bullet.new(self.x + (self.image.width / 2), self.y + self.image.height, Image.new(4, 32, C_WHITE), "missile") if Input.key_push?(keys[:shoot_missile])
   end
 
   def draw_bullets
@@ -18,7 +19,8 @@ class Enemy < TestObject
       left: K_LEFT,
       down: K_DOWN,
       up: K_UP,
-      shoot: K_RETURN
+      shoot: K_RETURN,
+      shoot_missile: K_X
     }
   end
 end
