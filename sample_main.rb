@@ -17,4 +17,6 @@ Window.loop do
   enemy.draw
 
   player.draw_bullets
+
+  enemy.draw_bullets
 end
