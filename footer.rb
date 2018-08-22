@@ -12,9 +12,11 @@ class Footer < TestObject
       if self===enemy_bullet
         enemy_bullet.vanish
         if @damage_footer <= 340
+          # 通常攻撃
           if enemy_bullet.whatami == "normal"
             @damage_footer += 20
           end
+          #ミサイル攻撃
           if enemy_bullet.whatami == "missile"
             @damage_footer += 40
           end
