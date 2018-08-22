@@ -10,8 +10,13 @@ class Footer < TestObject
   def enemy_damage
     if @enemy_bullets != nil
       @enemy_bullets.each do |enemy_bullet|
-        # enemy_bullet.vanish if self===enemy_bullet
-        @damage_footer += 20 if @damage_footer <= 340
+        if self===enemy_bullet
+          enemy_bullet.vanish
+          if @damage_footer <= 340
+            p @kind
+            @damage_footer += 20
+          end
+        end
       end
     end
   end
