@@ -2,6 +2,7 @@ require 'dxruby'
 require_relative 'testobject'
 require_relative 'player'
 require_relative 'enemy'
+require_relative 'enemy_small'
 require_relative 'bullet'
 require_relative 'footer'
 
@@ -34,9 +35,9 @@ Window.loop do
   
   enemy.draw_bullets
   enemy.hit
-  if enemy.shoot != nil
-    p enemy.shoot
-  end
+  #if enemy.shoot != nil
+  #  p enemy.shoot
+  #end
   footer.hit
 
   if player.vanished?

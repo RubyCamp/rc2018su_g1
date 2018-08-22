@@ -12,7 +12,7 @@ class Footer < TestObject
       if self===enemy_bullet
         enemy_bullet.vanish
         if @damage_footer <= 340
-          p enemy_bullet.whatami
+          #p enemy_bullet.whatami
           @damage_footer += 20
         end
       end
