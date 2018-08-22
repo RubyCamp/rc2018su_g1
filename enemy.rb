@@ -5,9 +5,10 @@ class Enemy < TestObject
       if self===enemy_bullet
         enemy_bullet.vanish
         #ダメージ量は要調整
-        if @@damage_enemy < 770
           @@damage_enemy += 10 if enemy_bullet.whatami == "normal"
           @@damage_enemy += 20 if enemy_bullet.whatami == "missile"
+        if @@damage_enemy > 780
+          @@damage_enemy = 780
         end
       end
     end
@@ -42,7 +43,7 @@ class Enemy < TestObject
   end
 
   def gage
-    Window.draw(8, 20, Image.new(780, 14, C_WHITE))
-    Window.draw(10, 21, Image.new(1 + @@damage_enemy, 12, C_RED))
+    Window.draw(8, 20, Image.new(782, 14, C_WHITE))
+    Window.draw(9, 21, Image.new(781 - @@damage_enemy, 12, C_RED))
   end
 end
