@@ -13,7 +13,12 @@ class TestObject < Sprite
 
   def hit
     @enemy_bullets.each do |enemy_bullet|
-      enemy_bullet.vanish if self===enemy_bullet
+      #enemy_bullet.vanish if self===enemy_bullet
+      if self===enemy_bullet
+        enemy_bullet.vanish
+        self.vanish
+        break
+      end
     end
     Sprite.clean(@enemy_bullets)
   end
