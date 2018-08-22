@@ -7,16 +7,21 @@ class Footer < TestObject
   end
 
   # enemyに攻撃されたときに増えるダメージ
-  def enemy_damage
-      @enemy_bullets.each do |enemy_bullet|
-        if self===enemy_bullet
-          enemy_bullet.vanish
-          if @damage_footer <= 340
-          p @kind
-          @damage_footer += 20
+  def hit
+    @enemy_bullets.each do |enemy_bullet|
+      if self===enemy_bullet
+        enemy_bullet.vanish
+        if @damage_footer <= 340
+          if enemy_bullet.whatami == "normal"
+            @damage_footer += 20
+          end
+          if enemy_bullet.whatami == "missile"
+            @damage_footer += 40
+          end
         end
       end
     end
+    Sprite.clean(@enemy_bullets)
   end
 
   #ゲージを描画

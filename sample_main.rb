@@ -37,7 +37,7 @@ Window.loop do
   if enemy.shoot != nil
     p enemy.shoot
   end
-  footer.enemy_damage
+  footer.hit
 
   if player.vanished?
     Sprite.clean(player)
