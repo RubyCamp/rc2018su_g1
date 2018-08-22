@@ -8,14 +8,12 @@ class Footer < TestObject
 
   # enemyに攻撃されたときに増えるダメージ
   def enemy_damage
-    if @enemy_bullets != nil
       @enemy_bullets.each do |enemy_bullet|
         if self===enemy_bullet
           enemy_bullet.vanish
           if @damage_footer <= 340
-            p @kind
-            @damage_footer += 20
-          end
+          p @kind
+          @damage_footer += 20
         end
       end
     end
