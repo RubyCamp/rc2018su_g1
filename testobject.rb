@@ -1,39 +1,32 @@
-#require_relative 'bullet'
-
 class TestObject < Sprite
-  def initialize(*args, enemy)
+  def initialize(*args)
     super(*args)
     @speed = 3 #移動速度
     @width = self.image.width #自機の幅
     @height = self.image.height #自機の高さ
     @bullets = [] #弾
-    @missiles = [] #弾(ミサイル)
     @count = 0
+    @enemy_bullets
   end
-  attr_accessor :enemy
+  attr_accessor :bullets
+  attr_accessor :enemy_bullets
 
   def hit
-
+    @enemy_bullets.each do |enemy_bullet|
+      enemy_bullet.vanish if self===enemy_bullet
+    end
+    Sprite.clean(@enemy_bullets)
   end
 
   def shoot
-    return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), "normal") if Input.key_push?(keys[:shoot])
-    return Bullet.new(self.x + (@width / 2), self.y, Image.new(4, 32, C_WHITE), "missile") if Input.key_push?(keys[:shoot_missile])
+    return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal") if Input.key_push?(keys[:shoot])
+    return Bullet.new(self.x + (@width / 2), self.y, Image.new(4, 32, C_WHITE), -10, "missile") if Input.key_push?(keys[:shoot_missile])
   end
 
   def draw_bullets
-    @bullets << self.shoot if self.shoot != nil && self.shoot.whatami == "normal"
-    @bullets.each do |bullet|
-      bullet.vanish if bullet.y <= 0
-      bullet.draw
-      bullet.y -= 4
-    end
-    @missiles << self.shoot if self.shoot != nil && self.shoot.whatami == "missile"
-    @missiles.each do |missile|
-      missile.vanish if missile.y <= 0
-      missile.draw
-      missile.y -= 20
-    end
+    @bullets << self.shoot if self.shoot != nil
+    Sprite.update(@bullets)
+    Sprite.clean(@bullets)
   end
     
   def update

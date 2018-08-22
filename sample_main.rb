@@ -4,11 +4,11 @@ require_relative 'player'
 require_relative 'enemy'
 require_relative 'bullet'
 
-player = Player.new(400, 400, Image.new(64, 32, C_WHITE), nil)
-enemy = Enemy.new(400, 50, Image.new(128, 64, C_RED), nil)
+player = Player.new(400 - 32, 400 - 32, Image.new(64, 32, C_WHITE), nil)
+enemy = Enemy.new(400 - 64, 50, Image.new(128, 64, C_RED), nil)
 
-player.enemy = enemy
-enemy.enemy = player
+player.enemy_bullets = enemy.bullets
+enemy.enemy_bullets = player.bullets
 
 Window.width = 800
 Window.height = 450
@@ -21,6 +21,8 @@ Window.loop do
   enemy.draw
 
   player.draw_bullets
+  player.hit
 
   enemy.draw_bullets
+  enemy.hit
 end

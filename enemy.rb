@@ -1,16 +1,20 @@
 class Enemy < TestObject
+  def hit
+    @enemy_bullets.each do |enemy_bullet|
+      enemy_bullet.vanish if self===enemy_bullet
+    end
+    Sprite.clean(@enemy_bullets)
+  end
+
   def shoot
-    return Sprite.new(self.x + (self.image.width / 2), self.y + self.image.height, Image.new(2, 32, C_RED)) if Input.key_push?(keys[:shoot])
-    return Bullet.new(self.x + (self.image.width / 2), self.y + self.image.height, Image.new(4, 32, C_WHITE), "missile") if Input.key_push?(keys[:shoot_missile])
+    return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_RED), 4, "normal") if Input.key_push?(keys[:shoot])
+    return Bullet.new(self.x + (@width / 2), self.y, Image.new(4, 32, C_RED), 10, "missile") if Input.key_push?(keys[:shoot_missile])
   end
 
   def draw_bullets
     @bullets << self.shoot if self.shoot != nil
-    @bullets.each do |bullet|
-      bullet.vanish if bullet.y >= 450
-      bullet.draw
-      bullet.y += 4
-    end
+    Sprite.update(@bullets)
+    Sprite.clean(@bullets)
   end
 
   def keys
