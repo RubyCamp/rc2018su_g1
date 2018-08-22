@@ -32,6 +32,7 @@ Window.loop do
     Sprite.clean(player)
     player = Player.new(400 - 32, 400 - 32, Image.new(64, 32, C_WHITE), nil)
     player.enemy_bullets = enemy.bullets
+    enemy.enemy_bullets = player.bullets
     player_life -= 1
     Window.close if player_life <= 0
   end
