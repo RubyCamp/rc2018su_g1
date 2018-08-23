@@ -1,6 +1,6 @@
 module Title2
   class Director
-    BACKGROUND = Image.load('images/title_universe.png')
+    BACKGROUND = Image.load('images/title2.png')
     BGM = Sound.new('sound/bgm_maoudamashii_neorock73.wav')
 
     def play
@@ -11,7 +11,7 @@ module Title2
       end
       if Input.key_push?(K_LEFT) || Input.key_push?(K_RIGHT)
         Scene.current = :title1
-        Scene[:title1].change_bgm
+        Scenes[:title1].change_bgm
       end
     end
 
