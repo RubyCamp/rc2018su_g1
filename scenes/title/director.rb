@@ -1,6 +1,6 @@
 module Title1
   class Director
-    BACKGROUND = Image.load('images/background_title.png')
+    BACKGROUND = Image.load('images/hogehoge.png')
     BGM = Sound.new('sound/Ro-Crazy.wav')
 
     def play

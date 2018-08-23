@@ -6,8 +6,8 @@ module Title2
     def play
       Window.draw(0, 0, BACKGROUND)
       if Input.key_push?(K_SPACE)
-        Scene.current = :game
-        Scene[:game].change_game_bgm
+        Scene.current = :game2
+        Scene[:game2].change_game_bgm
       end
       if Input.key_push?(K_LEFT) || Input.key_push?(K_RIGHT)
         Scene.current = :title1
