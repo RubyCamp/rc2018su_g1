@@ -40,7 +40,7 @@ class Player < TestObject
       down: K_S,
       up: K_W,
       shoot: K_SPACE,
-      shoot_missile: K_LCONTROL
+      shoot_missile: K_B
     }
   end
 end

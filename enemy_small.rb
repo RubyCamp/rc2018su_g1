@@ -4,7 +4,6 @@ class Enemy_small < TestObject
 
     @enemy_bullets
     @counter = 0
-    @timers = Timers::Group.new
   end
   attr_writer :enemy_bullets
   attr_reader :bullets

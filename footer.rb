@@ -3,7 +3,7 @@ class Footer < TestObject
     # ダメージの蓄積量を表す変数
     @damage_footer = 0
     # floorの線
-    super(0, Window.height - 50, Image.new(800, 5, C_GREEN))
+    super(0, Window.height - 80, Image.new(800, 2, C_GREEN))
   end
 
   # enemyに攻撃されたときに増えるダメージ

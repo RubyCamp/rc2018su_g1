@@ -1,5 +1,4 @@
 require 'dxruby'
-require 'timers'
 require_relative 'testobject'
 require_relative 'player'
 require_relative 'enemy'
@@ -37,6 +36,7 @@ Window.loop do
   
   enemy.draw_bullets
   enemy.hit
+  enemy.gage
   #if enemy.shoot != nil
   #  p enemy.shoot
   #end
