@@ -73,18 +73,5 @@
       }
     end
 
-    def sound
-      {
-        gun: 'sound/battle_gun.wav',
-        missile: 'sound/explosion.wav'
-      }
-    end
-
-    def images
-      {
-        cube: 'images/normal.png',
-        missile: 'images/missile.png'
-      }
-    end
   end
 # end

@@ -8,7 +8,7 @@ require_relative 'footer'
 module Game
   class Director
 
-    BACKGROUND = Image.load('images/background_game.png')
+    BACKGROUND = Image.load('images/background_hoge.png')
     # P1_IMAGE = Image.load('images/player1.png')
     # P2_IMAGE = Image.load('images/player2.png')
     BGM = Sound.new('sound/bgm.wav')
