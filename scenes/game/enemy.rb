@@ -23,7 +23,7 @@ class Enemy < TestObject
   end
 
   def shoot
-    return Enemy_small.new(self.x + (@width / 2), self.y + @height) if Input.key_push?(keys[:shoot])
+    return Enemy_small.new(self.x + (@width / 2), self.y + @height) if Input.key_push?(keys[:shoot]) if @bullets.size <= 10
   end
 
   def draw_bullets
