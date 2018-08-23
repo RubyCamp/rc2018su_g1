@@ -9,12 +9,12 @@ module Game
   class Director
 
     BACKGROUND = Image.load('images/background_game.png')
-    P1_IMAGE = Image.load('images/player1.png')
-    P2_IMAGE = Image.load('images/player2.png')
+    # P1_IMAGE = Image.load('images/player1.png')
+    # P2_IMAGE = Image.load('images/player2.png')
     BGM = Sound.new('sound/bgm.wav')
 
-    BULLET1_IMAGE = Image.load('images/bullet1.png')
-    BULLET2_IMAGE = Image.load('images/bullet2.png')
+    # BULLET1_IMAGE = Image.load('images/bullet1.png')
+    # BULLET2_IMAGE = Image.load('images/bullet2.png')
 
     def initialize
       @font = Font.new(24)
