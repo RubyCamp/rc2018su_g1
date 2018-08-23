@@ -11,7 +11,7 @@ module Title2
       end
       if Input.key_push?(K_LEFT) || Input.key_push?(K_RIGHT)
         Scene.current = :title1
-        Scenes[:title1].change_bgm
+        Scene[:title1].change_bgm
       end
     end
 
