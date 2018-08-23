@@ -1,4 +1,5 @@
 class TestObject < Sprite
+  GUN = Sound.new("sound/battle_gun.wav")
   def initialize(*args)
     super(*args)
     @speed = 3 #移動速度
@@ -23,7 +24,11 @@ class TestObject < Sprite
   end
 
   def shoot
-    return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal") if Input.key_push?(keys[:shoot])
+    if Input.key_push?(keys[:shoot])
+      GUN.play
+      return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal")
+    end
+    # return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal") if Input.key_push?(keys[:shoot])
     return Bullet.new(self.x + (@width / 2), self.y, Image.load('images/missile.png'), -10, "missile") if Input.key_push?(keys[:shoot_missile])
     # return Bullet.new(self.x + (@width / 2), self.y, Image.new(4, 32, C_WHITE), -10, "missile") if Input.key_push?(keys[:shoot_missile])
   end
