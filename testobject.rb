@@ -27,12 +27,12 @@ class TestObject < Sprite
   def shoot
     if Input.key_push?(keys[:shoot])
       @GUN.play
-      return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal")
+      return Bullet.new(self.x + (@width / 2), self.y, Image.load(images[:cube]), -4, "normal")
     end
     # return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal") if Input.key_push?(keys[:shoot])
     if Input.key_push?(keys[:shoot_missile])
       @MISSILE.play
-      return Bullet.new(self.x + (@width / 2), self.y, Image.load('images/missile.png'), -10, "missile")
+      return Bullet.new(self.x + (@width / 2), self.y, Image.load(images[:missile]), -10, "missile")
     end
     # return Bullet.new(self.x + (@width / 2), self.y, Image.load('images/missile.png'), -10, "missile") if Input.key_push?(keys[:shoot_missile])
   end
@@ -63,8 +63,15 @@ class TestObject < Sprite
 
   def sound
     {
-      gun: "sound/battle_gun.wav",
-      missile: "sound/explosion.wav"
+      gun: 'sound/battle_gun.wav',
+      missile: 'sound/explosion.wav'
+    }
+  end
+
+  def images
+    {
+      cube: 'images/cube.png',
+      missile: 'images/missile.png'
     }
   end
 end
