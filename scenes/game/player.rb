@@ -1,0 +1,25 @@
+class Player < TestObject
+#  def draw_bullets
+#    @bullets << self.shoot if self.shoot != nil && self.shoot.whatami == "normal"
+#    @bullets.each do |bullet|
+#      bullet.speed = -4
+#      bullet.update
+#    end
+#    @missiles << self.shoot if self.shoot != nil && self.shoot.whatami == "missile"
+#    @missiles.each do |missile|
+#      missile.speed = -10
+#      missile.update
+#    end
+#  end
+
+  def keys
+    {
+      right: K_D,
+      left: K_A,
+      down: K_S,
+      up: K_W,
+      shoot: K_SPACE,
+      shoot_missile: K_LCONTROL
+    }
+  end
+end
