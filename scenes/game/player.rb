@@ -1,4 +1,25 @@
 class Player < TestObject
+  def initialize(*args)
+    super(*args)
+
+    @esmall_bullets
+  end
+  attr_writer :esmall_bullets
+
+  def hit
+    super
+
+    if @esmall_bullets != nil
+      @esmall_bullets.each do |esmall_bullet|
+        if self===esmall_bullet
+          esmall_bullet.vanish
+          self.vanish
+          break
+        end
+      end
+    end
+    Sprite.clean(@esmall_bullets)
+  end
 #  def draw_bullets
 #    @bullets << self.shoot if self.shoot != nil && self.shoot.whatami == "normal"
 #    @bullets.each do |bullet|
@@ -19,7 +40,7 @@ class Player < TestObject
       down: K_S,
       up: K_W,
       shoot: K_SPACE,
-      shoot_missile: K_LCONTROL
+      shoot_missile: K_B
     }
   end
 end

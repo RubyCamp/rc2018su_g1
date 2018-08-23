@@ -7,13 +7,13 @@ class TestObject < Sprite
     @bullets = [] #弾
     @count = 0
     @enemy_bullets
+    @GUN = Sound.new("sound/battle_gun.wav")
   end
   attr_accessor :bullets
   attr_accessor :enemy_bullets
 
   def hit
     @enemy_bullets.each do |enemy_bullet|
-      #enemy_bullet.vanish if self===enemy_bullet
       if self===enemy_bullet
         enemy_bullet.vanish
         self.vanish
@@ -24,8 +24,13 @@ class TestObject < Sprite
   end
 
   def shoot
-    return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal") if Input.key_push?(keys[:shoot])
-    return Bullet.new(self.x + (@width / 2), self.y, Image.new(4, 32, C_WHITE), -10, "missile") if Input.key_push?(keys[:shoot_missile])
+    if Input.key_push?(keys[:shoot])
+      @GUN.play
+      return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal")
+    end
+    # return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal") if Input.key_push?(keys[:shoot])
+    return Bullet.new(self.x + (@width / 2), self.y, Image.load('images/missile.png'), -10, "missile") if Input.key_push?(keys[:shoot_missile])
+    # return Bullet.new(self.x + (@width / 2), self.y, Image.new(4, 32, C_WHITE), -10, "missile") if Input.key_push?(keys[:shoot_missile])
   end
 
   def draw_bullets
@@ -33,7 +38,7 @@ class TestObject < Sprite
     Sprite.update(@bullets)
     Sprite.clean(@bullets)
   end
-    
+
   def update
     self.x += @speed if Input.key_down?(keys[:right]) && self.x <= 700 - @width
     self.x -= @speed if Input.key_down?(keys[:left]) && self.x >= 100
