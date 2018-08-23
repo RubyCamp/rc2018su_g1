@@ -1,7 +1,7 @@
 module Title2
   class Director
     BACKGROUND = Image.load('images/title_universe.png')
-    BGM = Sound.new('sound/bgm.wav')
+    BGM = Sound.new('sound/bgm_maoudamashii_neorock73.wav')
 
     def play
       Window.draw(0, 0, BACKGROUND)
