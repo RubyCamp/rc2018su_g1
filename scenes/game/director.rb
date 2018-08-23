@@ -18,7 +18,7 @@ module Game
 
     def initialize
       @font = Font.new(24)
-      @player = Player.new(400 - 32, 400 - 32, Image.new(64, 32, C_WHITE), nil)
+      @player = Player.new(400 - 32, 550 - 32, Image.new(64, 32, C_WHITE), nil)
       @enemy = Enemy.new(400 - 64, 50, Image.new(128, 64, C_RED), nil)
       @footer = Footer.new
 
@@ -59,7 +59,7 @@ module Game
 
       if @player.vanished?
         Sprite.clean(@player)
-        @player = Player.new(400 - 32, 400 - 32, Image.new(64, 32, C_WHITE), nil)
+        @player = Player.new(400 - 32, 550 - 32, Image.new(64, 32, C_WHITE), nil)
         @player.enemy_bullets = @enemy.bullets
         @player.esmall_bullets = @enemy.bullets_small
         @enemy.enemy_bullets = @player.bullets

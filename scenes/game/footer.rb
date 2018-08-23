@@ -11,7 +11,7 @@ class Footer < TestObject
     @enemy_bullets.each do |enemy_bullet|
       if self===enemy_bullet
         enemy_bullet.vanish
-        if @damage_footer <= 340
+        if @damage_footer <= 430
           #p enemy_bullet.whatami
           @damage_footer += 20
         end
@@ -22,7 +22,7 @@ class Footer < TestObject
 
   #ゲージを描画
   def gage
-    Window.draw(8, 41, Image.new(14, 360, C_WHITE))
-    Window.draw(10, 400 - @damage_footer, Image.new(10, 1 + @damage_footer, C_RED))
+    Window.draw(8, 61, Image.new(14, 440, C_WHITE))
+    Window.draw(10, 500 - @damage_footer, Image.new(10, 1 + @damage_footer, C_RED))
   end
 end
