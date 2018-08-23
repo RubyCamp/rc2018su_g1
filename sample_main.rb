@@ -1,5 +1,4 @@
 require 'dxruby'
-require 'timers'
 require_relative 'testobject'
 require_relative 'player'
 require_relative 'enemy'
