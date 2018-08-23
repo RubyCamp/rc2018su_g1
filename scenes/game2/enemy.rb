@@ -15,8 +15,11 @@ module Game2
           #ダメージ量は要調整
             @@damage_enemy += 10 if enemy_bullet.whatami == "normal"
             @@damage_enemy += 20 if enemy_bullet.whatami == "missile"
-          if @@damage_enemy > 780
-            @@damage_enemy = 780
+          if @@damage_enemy >= 780
+            Scene.current = :ending2
+            Scene[:ending2].change_bgm
+            @enemy_bullets.clear
+            @@damage_enemy = 0
           end
         end
       end

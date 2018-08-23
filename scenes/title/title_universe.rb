@@ -9,14 +9,19 @@ module Title2
         Scene.current = :game2
         Scene[:game2].change_game_bgm
       end
-      if Input.key_push?(K_LEFT) || Input.key_push?(K_RIGHT)
+      if Input.key_push?(K_LEFT)
         Scene.current = :title1
         Scene[:title1].change_bgm
+      end
+      if Input.key_push?(K_RIGHT)
+        Scene.current = :title3
+        Scene[:title3].change_bgm
       end
     end
 
     def change_bgm
       Scene[:title1].class::BGM.stop
+      Scene[:title3].class::BGM.stop
       BGM.play
     end
   end
