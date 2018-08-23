@@ -30,10 +30,12 @@ module Game
 
       @player_life = 3
 
+      @font = Font.new(32)
     end
 
     def play
       Window.draw(0, 0, BACKGROUND)
+      Window.draw_font(0, Window.height - 32, (@player.remaining_bullets / 2).to_s, @font)
 
       @footer.draw
       @footer.gage
