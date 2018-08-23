@@ -6,7 +6,7 @@ class Enemy_small < TestObject
     @counter = 0
   end
   attr_writer :enemy_bullets
-  attr_reader :bullets
+  attr_accessor :bullets
 
   def shoot
     @counter += 1
@@ -39,6 +39,11 @@ class Enemy_small < TestObject
   def update
     self.y += 1
     self.draw
+    if self.vanished?
+      @bullets.each do |bullet|
+        bullet.vanish
+      end
+    end
     self.vanish if self.y <= 0 || self.y >= Window.width
   end
 end
