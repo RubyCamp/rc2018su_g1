@@ -16,6 +16,10 @@ Scene.add(:ending, Ending::Director.new)
 Scene.current = :title1
 
 Scene[:title1].class::BGM.loop_count = -1 # 無限ループ
+Scene[:title2].class::BGM.loop_count = -1
+Scene[:game].class::BGM.loop_count = -1
+Scene[:ending].class::BGM.loop_count = -1
+
 Scene[:title1].class::BGM.play
 
 Window.loop do

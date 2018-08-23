@@ -31,7 +31,7 @@ class Enemy_small < TestObject
         enemy_bullet.vanish
         @bullets.each do |bullet|
           bullet.vanish
-          p bullet.vanished?
+#          p bullet.vanished?
         end
         Sprite.clean(@bullets)
         self.vanish
