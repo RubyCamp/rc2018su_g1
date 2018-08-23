@@ -24,7 +24,8 @@ class TestObject < Sprite
 
   def shoot
     return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal") if Input.key_push?(keys[:shoot])
-    return Bullet.new(self.x + (@width / 2), self.y, Image.new(4, 32, C_WHITE), -10, "missile") if Input.key_push?(keys[:shoot_missile])
+    return Bullet.new(self.x + (@width / 2), self.y, Image.load('images/missile.png'), -10, "missile") if Input.key_push?(keys[:shoot_missile])
+    # return Bullet.new(self.x + (@width / 2), self.y, Image.new(4, 32, C_WHITE), -10, "missile") if Input.key_push?(keys[:shoot_missile])
   end
 
   def draw_bullets
