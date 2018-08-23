@@ -7,7 +7,8 @@ class TestObject < Sprite
     @bullets = [] #弾
     @count = 0
     @enemy_bullets
-    @GUN = Sound.new("sound/battle_gun.wav")
+    @GUN = Sound.new(sound[:gun])
+    @MISSILE = Sound.new(sound[:missile])
   end
   attr_accessor :bullets
   attr_accessor :enemy_bullets
@@ -29,8 +30,11 @@ class TestObject < Sprite
       return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal")
     end
     # return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal") if Input.key_push?(keys[:shoot])
-    return Bullet.new(self.x + (@width / 2), self.y, Image.load('images/missile.png'), -10, "missile") if Input.key_push?(keys[:shoot_missile])
-    # return Bullet.new(self.x + (@width / 2), self.y, Image.new(4, 32, C_WHITE), -10, "missile") if Input.key_push?(keys[:shoot_missile])
+    if Input.key_push?(keys[:shoot_missile])
+      @MISSILE.play
+      return Bullet.new(self.x + (@width / 2), self.y, Image.load('images/missile.png'), -10, "missile")
+    end
+    # return Bullet.new(self.x + (@width / 2), self.y, Image.load('images/missile.png'), -10, "missile") if Input.key_push?(keys[:shoot_missile])
   end
 
   def draw_bullets
@@ -54,6 +58,13 @@ class TestObject < Sprite
       up: K_W,
       shoot: K_SPACE,
       shoot_missile: K_CONTROL
+    }
+  end
+
+  def sound
+    {
+      gun: "sound/battle_gun.wav",
+      missile: "sound/explosion.wav"
     }
   end
 end
