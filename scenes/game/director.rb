@@ -65,8 +65,10 @@ module Game
         #Window.close if @player_life <= 0
       end
     end
-    def change_bgm
-      Scene[:game].class::BGM.stop
+
+    def change_game_bgm
+      Scene[:title1].class::BGM.stop
+      Scene[:title2].class::BGM.stop
       BGM.play
     end
   end
