@@ -31,6 +31,10 @@ class Enemy < TestObject
     @bullets.each do |bullet|
       @bullets_small.concat(bullet.bullets)
       bullet.enemy_bullets = @enemy_bullets
+      #p bullet.vanished?
+      bullet.bullets.each do |bullet|
+        #p bullet.vanished?
+      end
       bullet.draw_bullets
       bullet.hit
     end

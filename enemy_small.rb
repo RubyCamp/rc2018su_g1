@@ -29,6 +29,11 @@ class Enemy_small < TestObject
     @enemy_bullets.each do |enemy_bullet|
       if self===enemy_bullet
         enemy_bullet.vanish
+        @bullets.each do |bullet|
+          bullet.vanish
+          p bullet.vanished?
+        end
+        Sprite.clean(@bullets)
         self.vanish
         break
       end
@@ -39,11 +44,6 @@ class Enemy_small < TestObject
   def update
     self.y += 1
     self.draw
-    if self.vanished?
-      @bullets.each do |bullet|
-        bullet.vanish
-      end
-    end
     self.vanish if self.y <= 0 || self.y >= Window.width
   end
 end
