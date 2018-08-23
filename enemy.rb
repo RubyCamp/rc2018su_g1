@@ -1,4 +1,11 @@
 class Enemy < TestObject
+  def initialize(*args)
+    super(*args)
+
+    @bullets_small = []
+  end
+  attr_reader :bullets_small
+
   def hit
     @enemy_bullets.each do |enemy_bullet|
       enemy_bullet.vanish if self===enemy_bullet
@@ -7,15 +14,15 @@ class Enemy < TestObject
   end
 
   def shoot
-    #return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_RED), 4, "normal") if Input.key_push?(keys[:shoot])
-    #return Bullet.new(self.x + (@width / 2), self.y, Image.new(4, 32, C_RED), 10, "missile") if Input.key_push?(keys[:shoot_missile])
-    return Enemy_small.new(self.x + (@width / 2), self.y) if Input.key_push?(keys[:shoot])
+    return Enemy_small.new(self.x + (@width / 2), self.y + @height) if Input.key_push?(keys[:shoot])
   end
 
   def draw_bullets
     @bullets << self.shoot if self.shoot != nil
     @bullets.each do |bullet|
+      @bullets_small.concat(bullet.bullets)
       bullet.enemy_bullets = @enemy_bullets
+      bullet.draw_bullets
       bullet.hit
     end
     Sprite.update(@bullets)

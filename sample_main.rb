@@ -1,4 +1,5 @@
 require 'dxruby'
+require 'timers'
 require_relative 'testobject'
 require_relative 'player'
 require_relative 'enemy'
@@ -11,6 +12,7 @@ enemy = Enemy.new(400 - 64, 50, Image.new(128, 64, C_RED), nil)
 footer = Footer.new
 
 player.enemy_bullets = enemy.bullets
+player.esmall_bullets = enemy.bullets_small
 enemy.enemy_bullets = player.bullets
 
 footer.enemy_bullets = enemy.bullets
@@ -44,6 +46,7 @@ Window.loop do
     Sprite.clean(player)
     player = Player.new(400 - 32, 400 - 32, Image.new(64, 32, C_WHITE), nil)
     player.enemy_bullets = enemy.bullets
+    player.esmall_bullets = enemy.bullets_small
     enemy.enemy_bullets = player.bullets
     player_life -= 1
     Window.close if player_life <= 0
