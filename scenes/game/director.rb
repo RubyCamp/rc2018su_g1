@@ -11,6 +11,7 @@ module Game
     BACKGROUND = Image.load('images/background_game.png')
     P1_IMAGE = Image.load('images/player1.png')
     P2_IMAGE = Image.load('images/player2.png')
+    BGM = Sound.new('sound/bgm.wav')
 
     BULLET1_IMAGE = Image.load('images/bullet1.png')
     BULLET2_IMAGE = Image.load('images/bullet2.png')
@@ -63,6 +64,10 @@ module Game
         @player_life -= 1
         #Window.close if @player_life <= 0
       end
+    end
+    def change_bgm
+      Scene[:game].class::BGM.stop
+      BGM.play
     end
   end
 end
