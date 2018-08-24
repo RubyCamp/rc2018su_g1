@@ -8,6 +8,7 @@ require_relative 'scenes/game2/director'
 require_relative 'scenes/game3/director'
 require_relative 'scenes/ending/director'
 require_relative 'scenes/ending/director2'
+require_relative 'scenes/ending/director3'
 
 Window.width = 800
 Window.height = 600
@@ -20,6 +21,7 @@ Scene.add(:game2, Game2::Director.new)
 Scene.add(:game3, Game3::Director.new)
 Scene.add(:ending, Ending::Director.new)
 Scene.add(:ending2, Ending2::Director.new)
+Scene.add(:ending3, Ending3::Director.new)
 
 Scene.current = :title1
 
@@ -30,6 +32,8 @@ Scene[:game].class::BGM.loop_count = -1
 Scene[:game2].class::BGM.loop_count = -1
 Scene[:game3].class::BGM.loop_count = -1
 Scene[:ending].class::BGM.loop_count = -1
+Scene[:ending2].class::BGM.loop_count = -1
+Scene[:ending3].class::BGM.loop_count = -1
 
 Scene[:title1].class::BGM.play
 

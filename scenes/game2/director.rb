@@ -80,6 +80,7 @@ module Game2
     end
 
     def change_game_bgm
+      Scene[:title1].class::BGM.stop
       Scene[:title2].class::BGM.stop
       BGM.play
     end

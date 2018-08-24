@@ -63,6 +63,10 @@ module Game3
         @player.esmall_bullets = @enemy.bullets_small
         @enemy.enemy_bullets = @player.bullets
         @player_life -= 1
+        if @player_life <= 0
+          Scene.current = :ending3
+          Scene[:ending3].change_bgm
+        end
         #Window.close if @player_life <= 0
       end
     end

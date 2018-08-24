@@ -8,7 +8,8 @@ require_relative 'footer'
 module Game
   class Director
 
-    BACKGROUND = Image.load('images/background_hoge.png')
+    BACKGROUND = Image.load('images/hogehoge_bg.png')
+    # VIM = Image.load('images/vim.png')
     # P1_IMAGE = Image.load('images/player1.png')
     # P2_IMAGE = Image.load('images/player2.png')
     BGM = Sound.new('sound/bgm.wav')
@@ -18,8 +19,8 @@ module Game
 
     def initialize
       @font = Font.new(24)
-      @player = Player.new(400 - 32, 550 - 32, Image.new(64, 32, C_WHITE), nil)
-      @enemy = Enemy.new(400 - 64, 50, Image.new(128, 64, C_RED), nil)
+      @player = Player.new(400 - 32, 550 - 32, Image.load('images/vim.png'), nil)
+      @enemy = Enemy.new(400 - 64, 50, Image.load('images/Emacs_512.png'), nil)
       @footer = Footer.new
 
       @player.enemy_bullets = @enemy.bullets
@@ -31,11 +32,16 @@ module Game
       @player_life = 3
 
       @font = Font.new(32)
+      @player_life_list = [[30, 530], [85, 530], [140, 530]]
     end
 
     def play
       Window.draw(0, 0, BACKGROUND)
       Window.draw_font(0, Window.height - 32, (@player.remaining_bullets / 2).to_s, @font)
+
+      @player_life_list.each do |x, y|
+        Window.draw(x, y, Image.load('images/vim.png'))
+      end
 
       @footer.draw
       @footer.gage
@@ -59,11 +65,16 @@ module Game
 
       if @player.vanished?
         Sprite.clean(@player)
-        @player = Player.new(400 - 32, 550 - 32, Image.new(64, 32, C_WHITE), nil)
+        @player = Player.new(400 - 32, 550 - 32, Image.load('images/vim.png'), nil)
         @player.enemy_bullets = @enemy.bullets
         @player.esmall_bullets = @enemy.bullets_small
         @enemy.enemy_bullets = @player.bullets
         @player_life -= 1
+        @player_life_list.pop
+        if @player_life <= 0
+          Scene.current = :ending
+          Scene[:ending].change_bgm
+        end
         #Window.close if @player_life <= 0
       end
     end

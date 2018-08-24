@@ -54,8 +54,8 @@ module Game
 
     def images
       {
-        cube: 'images/normal.png',
-        missile: 'images/missile.png'
+        cube: 'images/esc.png',
+        missile: 'images/notenec.png'
       }
     end
   end

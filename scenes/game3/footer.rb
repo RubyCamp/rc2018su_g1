@@ -14,6 +14,9 @@ class Footer < TestObject
         if @damage_footer <= 430
           #p enemy_bullet.whatami
           @damage_footer += 20
+        else
+          Scene.current = :ending3
+          Scene[:ending3].change_bgm
         end
       end
     end

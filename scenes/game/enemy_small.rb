@@ -1,7 +1,7 @@
 module Game
   class Enemy_small < TestObject
     def initialize(x, y)
-      super(x, y, Image.new(32, 32, C_BLUE))
+      super(x - 30, y, Image.load('images/shift.png'))
 
       @enemy_bullets
       @counter = 0
@@ -11,10 +11,10 @@ module Game
 
     def shoot
       @counter += 1
-      if @counter == 60
+      if @counter == 90
         @counter = 0
         #p "test"
-        return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_RED), 4, "normal")
+        return Bullet.new(self.x - 15 + (@width / 2), self.y, Image.load('images/ctrl.png'), 4, "normal")
       end
     end
 
@@ -43,7 +43,7 @@ module Game
     end
 
     def update
-      self.y += 1
+      self.y += 0.5
       self.draw
       self.vanish if self.y <= 0 || self.y >= Window.width
     end
