@@ -3,13 +3,6 @@ module Ending
     BACKGROUND = Image.load('images/hogehoge_gameset.png')
     BGM = Sound.new('sound/bgm_ending.wav')
 
-    def initialize
-      @player_images = {
-        'neko1' => Image.load('images/win1.png'),
-        'neko2' => Image.load('images/win2.png')
-      }
-    end
-
     def play
       Window.draw(0, 0, BACKGROUND)
 

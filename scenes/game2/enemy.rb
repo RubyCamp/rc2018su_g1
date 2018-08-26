@@ -5,6 +5,7 @@ module Game2
       super(*args)
 
       @bullets_small = []
+      @COMET = Sound.new('sound/comet.wav')
     end
     attr_reader :bullets_small
 
@@ -27,7 +28,10 @@ module Game2
     end
 
     def shoot
-      return Enemy_small.new(self.x + (@width / 2), self.y + @height) if Input.key_push?(keys[:shoot]) if @bullets.size <= 10
+      if Input.key_push?(keys[:shoot]) && @bullets.size <= 10
+        @COMET.play
+        return Enemy_small.new(self.x + (@width / 2), self.y + @height)
+      end
     end
 
     def draw_bullets

@@ -30,7 +30,7 @@ class TestObject < Sprite
   def shoot
     if Input.key_push?(keys[:shoot])
       @GUN.play
-      return Bullet.new(self.x + (@width / 2) - 5, self.y, Image.load(images[:cube]), -4, "normal")
+      return Bullet.new(self.x + (@width / 2) + 5, self.y, Image.load(images[:cube]), -4, "normal")
     end
     # return Bullet.new(self.x + (@width / 2), self.y, Image.new(2, 32, C_WHITE), -4, "normal") if Input.key_push?(keys[:shoot])
     if Input.key_push?(keys[:shoot_missile]) && @remaining_bullets > 0

@@ -3,11 +3,6 @@ module Ending3
     BACKGROUND = Image.load('images/cthulhu_gameset1.png')
     BGM = Sound.new('sound/higan.wav')
 
-    def initialize
-    
-        
-    end
-
     def play
       Window.draw(0, 0, BACKGROUND)
 

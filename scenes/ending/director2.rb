@@ -3,13 +3,6 @@ module Ending2
     BACKGROUND = Image.load('images/background_ending.png')
     BGM = Sound.new('sound/bgm_ending.wav')
 
-    def initialize
-      @player_images = {
-        'neko1' => Image.load('images/win1.png'),
-        'neko2' => Image.load('images/win2.png')
-      }
-    end
-
     def play
       Window.draw(0, 0, BACKGROUND)
 
@@ -20,7 +13,7 @@ module Ending2
     end
 
     def change_bgm
-      Scene[:game].class::BGM.stop
+      Scene[:game2].class::BGM.stop
       BGM.play
     end
   end

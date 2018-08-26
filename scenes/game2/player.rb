@@ -4,6 +4,7 @@ module Game2
       super(*args)
 
       @esmall_bullets
+      @COMET_EX = Sound.new('sound/comet_ex.wav')
     end
     attr_writer :esmall_bullets
 
@@ -15,6 +16,7 @@ module Game2
           if self===esmall_bullet
             esmall_bullet.vanish
             self.vanish
+            @COMET_EX.play
             break
           end
         end

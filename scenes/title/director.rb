@@ -20,7 +20,9 @@ module Title1
     end
 
     def change_bgm
+      Scene[:ending].class::BGM.stop
       Scene[:ending2].class::BGM.stop
+      Scene[:ending3].class::BGM.stop
       Scene[:title2].class::BGM.stop
       Scene[:title3].class::BGM.stop
       BGM.play

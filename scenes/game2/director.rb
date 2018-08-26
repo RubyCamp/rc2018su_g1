@@ -12,7 +12,7 @@ module Game2
     Earth = Image.load('images/earth.png')
     # P1_IMAGE = Image.load('images/player1.png')
     # P2_IMAGE = Image.load('images/player2.png')
-    BGM = Sound.new('sound/bgm.wav')
+    BGM = Sound.new('sound/bgm_maoudamashii_neorock73.wav')
 
     # BULLET1_IMAGE = Image.load('images/bullet1.png')
     # BULLET2_IMAGE = Image.load('images/bullet2.png')
